@@ -19,7 +19,7 @@ To add messages for later display you can add them to a specific message group u
 
 ### Displaying messages
 
-The added messages stay available until you retrieve them. So if you would add them in a specific controller and then redirect, the messages would still be available. This is especially handy for displaying error messages when an action has failed.
+The added messages stays available until you retrieve them. So if you would add them in a specific controller and then redirect, the messages would still be available. This is especially handy for displaying error messages when an action has failed.
 
     $messages = $this->messages->get();
 	
@@ -48,3 +48,4 @@ If at any point you want to know how many messages are stored you can use:
 The stored messages are cleared when you retrieve them using get(), but if you want to manually clear them you can use:
 
 	$this->messages->clear();
+	$this->messages->clear("error");
