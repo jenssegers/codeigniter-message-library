@@ -8,12 +8,21 @@ class Messages {
 	function Messages($params = array()) {
 		$this->ci = & get_instance();
 		$this->ci->load->library('session');
-		
-		$messages = $this->ci->session->userdata('messages');
 	}
 	
-	function clear() {
-		$this->ci->session->set_userdata('messages', array());
+	function clear($type = null) {
+		if(! empty($type)) {
+			$messages = $this->ci->session->userdata('messages');
+			if (! is_array($messages))
+				$messages = array();
+				
+			if (array_key_exists($type, $messages))
+				unset($messages[$type]);
+				
+			$this->ci->session->set_userdata('messages', $messages);
+		}
+		else
+			$this->ci->session->set_userdata('messages', array());
 	}
 	
 	function add($message, $type = 'message') {
@@ -57,15 +66,15 @@ class Messages {
 			$messages = array();
 		
 		if (! empty($type)) {
-			if (array_key_exists($type, $messages))
+			if (array_key_exists($type, $messages)) {
+				$this->clear($type);
 				return $messages[$type];
+			}
 			else
 				return array();
 		}
 		
-		$return = $messages;
-		
 		$this->clear();
-		return $return;
+		return $messages;
 	}
 }  
