@@ -30,7 +30,7 @@ if (! defined('BASEPATH'))
 class Messages {
 	var $ci;
 	
-	function Messages($params = array()) {
+	function __construct($params = array()) {
 		$this->ci = & get_instance();
 		$this->ci->load->library('session');
 	}
@@ -63,7 +63,7 @@ class Messages {
 		if ((! isset($messages[$type]) || ! in_array($message, $messages[$type])) && is_string($message) && $message)
 			$messages[$type][] = $message;
 		
-		$messages = $this->ci->session->set_userdata('messages', $messages);
+		$this->ci->session->set_userdata('messages', $messages);
 	}
 	
 	function count($type = null) {
