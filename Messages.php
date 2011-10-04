@@ -55,7 +55,7 @@ class Messages {
 		if (! is_array($messages))
 			$messages = array();
 		
-		if (is_a($message, 'PEAR_Error')) {
+		if (is_a($message, 'Exception')) {
 			$message = $message->getMessage();
 			$type = 'error';
 		}
