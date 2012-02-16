@@ -1,10 +1,10 @@
-CodeIgniter message library
-=============
+CodeIgniter Message Library
+===========================
 
 You can use this library to store and retrieve your error or information messages whenever you want. The messages are cleared when you retrieve them, so they remain available even after a redirect!
 
 Usage
-------------
+-----
 
 To install the library, place it inside your libraries folder and load it using
     $this->load->library("messages");

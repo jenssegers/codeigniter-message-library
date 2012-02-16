@@ -73,7 +73,7 @@ class Messages {
 		
 		if (! empty($type)) {
 			if (array_key_exists($type, $messages))
-				return $messages[$type];
+				return count($messages[$type]);
 			else
 				return 0;
 		}
