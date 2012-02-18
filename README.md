@@ -8,6 +8,8 @@ Usage
 
 To install the library, place it inside your libraries folder and load it using
     $this->load->library("messages");
+    
+Or use the spark.
 
 ### Adding messages
 
